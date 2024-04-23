@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let listaNumeros = '1,2,3,4,5'; 
+            let numeros = listaNumeros.split(',');
+            let suma = 0;
+            let mayor = Number(numeros[0]);
+            let menor = Number(numeros[0]);
+            let media;
+
+            for (let i = 0; i < numeros.length; i++) {
+            let numeroActual = Number(numeros[i]);
+            suma += numeroActual;
+            if (numeroActual > mayor) {
+                mayor = numeroActual;
+            }
+            if (numeroActual < menor) {
+                menor = numeroActual;
+            }
+            }
+
+            media = suma / numeros.length;
+
+            console.log('Suma: ' + suma);
+            console.log('Mayor: ' + mayor);
+            console.log('Menor: ' + menor);
+            console.log('Media: ' + media);
+    </script>
+    
+</body>
+</html>
