@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Números Pares</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtro de Números Pares</h1>
+    <input type="text" id="numeroEntrada" placeholder="Ingresa números separados por comas">
+    <button onclick="filtrarNumerosPares()">Filtrar</button>
+
+    <div id="contenedorTablaOriginal">
+        <h2>Números Originales</h2>
+        <table id="tablaOriginal"></table>
+    </div>
+
+    <div id="contenedorTablaPares">
+        <h2>Números Pares</h2>
+        <table id="tablaPares"></table>
+    </div>
+
+    <script>
+        function filtrarNumerosPares() {
+    const entradaNumeros = document.getElementById('numeroEntrada').value;
+    const arregloNumeros = entradaNumeros.split(',').map(Number);
+
+    const tablaOriginal = document.getElementById('tablaOriginal');
+    const tablaPares = document.getElementById('tablaPares');
+
+    tablaOriginal.innerHTML = '';
+    tablaPares.innerHTML = '';
+
+    const encabezadoTablaOriginal = tablaOriginal.insertRow();
+    encabezadoTablaOriginal.insertCell().textContent = 'Número';
+    for (const numero of arregloNumeros) {
+        const fila = tablaOriginal.insertRow();
+        fila.insertCell().textContent = numero;
+    }
+
+    const numerosPares = arregloNumeros.filter(numero => numero % 2 === 0);
+
+    const encabezadoTablaPares = tablaPares.insertRow();
+    encabezadoTablaPares.insertCell().textContent = 'Número Par';
+    for (const numeroPar of numerosPares) {
+        const fila = tablaPares.insertRow();
+        fila.insertCell().textContent = numeroPar;
+    }
+}
+
+    </script>
+</body>
+</html>
