@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Concatenar cadenas</title>
+</head>
+<body>
+    <h1>Concatenar cadenas</h1>
+    <input type="text" id="cadena1" placeholder="Introduce una cadena separada por coma">
+    <input type="text" id="cadena2" placeholder="Introduce otra cadena separada por coma">
+    <button onclick="concatenarCadenas()">Concatenar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function concatenarCadenas() {
+            const cadena1 = document.getElementById('cadena1').value.split(',');
+            const cadena2 = document.getElementById('cadena2').value.split(',');
+            
+            let cadenaConcatenada = cadena1.slice(); // Create a copy to avoid modifying original arrays
+
+            for (let i = 0; i < cadena2.length; i++) {
+                cadenaConcatenada.push(cadena2[i]);
+            }
+
+            document.getElementById('resultado').textContent = cadenaConcatenada.join(', ');
+        }
+    </script>
+</body>
+</html>
